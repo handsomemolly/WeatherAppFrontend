@@ -9,13 +9,16 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    homeWeather: [],
+    allData: [],
   };
 
   componentDidMount() {
     fetch("http://localhost:3000/user_locations/render_request")
       .then((res) => res.json())
-      .then((weather) => console.log(weather));
+      .then((data) => {
+        this.setState({ allData: data });
+        console.log(this.state);
+      });
   }
 
   render() {
