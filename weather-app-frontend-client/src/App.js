@@ -26,7 +26,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
-          <Route path="/Home" component={Home} />
+          <Route
+            path="/Home"
+            render={() => <Home allData={this.state.allData} />}
+          />
           <Route path="/Signup" component={Signup} />
           <Route path="/LogIn" component={LogIn} />
         </div>
