@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
+import CitySelect from "./CitySelect";
 
 class Home extends Component {
   state = {
     current: { weather: [{ description: "" }] },
     daily: [],
+    name: ""
   };
+
+  submitName = (e, name) => {
+    e.preventDefault()
+    console.log(name)
+  }
 
   componentDidMount() {
     fetch("http://localhost:3000/user_locations/render_request")
@@ -20,6 +27,7 @@ class Home extends Component {
     return (
       <div>
         <h3> Home </h3>
+        <div> <CitySelect submitName={this.submitName}/> </div>
         <div>{<CurrentContainer current={this.state.current} />}</div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
       </div>
