@@ -5,7 +5,7 @@ class UserLocations extends React.Component {
         fetch("http://localhost:3000/user_locations")
           .then((res) => res.json())
           .then((data) => { 
-            data.map(() => <li>{map.city}</li>);
+            data.map(location => <li>{location.city}</li>);
           });
       }
   
