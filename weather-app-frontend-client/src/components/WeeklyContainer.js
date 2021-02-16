@@ -2,15 +2,17 @@ import React from "react";
 
 class WeeklyContainer extends React.Component {
   generateForecast = () => {
-    return this.props.allData.lmao.daily.map((eachDay) => {
+    return this.props.daily.map((eachDay) => {
       let unixTime = eachDay.dt;
       let date = new Date(unixTime * 1000);
       return (
         <div>
-          <h3>Date:{date.toLocaleDateString("en-US")} </h3>
-          <p>Conditions: {eachDay.weather[0].description}</p>
-          <p>High:{eachDay.temp.max}</p>
-          <p>Low: {eachDay.temp.min}</p>
+          <tr>
+            <h3>Date:{date.toLocaleDateString("en-US")} </h3>
+            <td>Conditions: {eachDay.weather[0].description}</td>
+            <td>High:{eachDay.temp.max}</td>
+            <td>Low: {eachDay.temp.min}</td>
+          </tr>
         </div>
       );
     });

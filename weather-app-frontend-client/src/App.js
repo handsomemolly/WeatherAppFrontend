@@ -8,28 +8,12 @@ import LogIn from "./components/LogIn";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
-  state = {
-    allData: [],
-  };
-
-  componentDidMount() {
-    fetch("http://localhost:3000/user_locations/render_request")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ allData: data });
-        console.log(this.state);
-      });
-  }
-
   render() {
     return (
       <Router>
         <div className="App">
           <Nav />
-          <Route
-            path="/Home"
-            render={() => <Home allData={this.state.allData} />}
-          />
+          <Route path="/Home" component={Home} />
           <Route path="/Signup" component={Signup} />
           <Route path="/LogIn" component={LogIn} />
         </div>
