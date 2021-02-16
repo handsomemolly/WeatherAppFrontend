@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
+import UserLocations from './UserLocations'
 
 class Home extends Component {
   state = {
@@ -22,6 +23,8 @@ class Home extends Component {
         <h3> Home </h3>
         <div>{<CurrentContainer current={this.state.current} />}</div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
+        <div>{<UserLocations />}</div>
+
       </div>
     );
   }
