@@ -5,13 +5,13 @@ import LogIn from './LogIn'
 class UserContainer extends Component {
 
   state = {
-    thingy: false
+    loginSwitch: false
   }
 
   showLogIn = () => {
     this.setState(prevState => {
       return{
-        thingy: !prevState.thingy
+        loginSwitch: !prevState.loginSwitch
       }
     })
   }
@@ -19,7 +19,7 @@ class UserContainer extends Component {
   render(){
     return (
       <div>
-        {this.state.thingy ? <LogIn toggleButton={this.showLogIn}/> : <Signup toggleButton={this.showLogIn}/>}
+        {this.state.loginSwitch ? <LogIn toggleButton={this.showLogIn}/> : <Signup toggleButton={this.showLogIn}/>}
       </div>
     );
   }
