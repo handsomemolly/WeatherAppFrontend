@@ -12,13 +12,13 @@ class WeeklyContainer extends React.Component {
       return (
         <Card>
           <Card.Content className="cardInfo">
-            <Card.Header>Date:{date.toLocaleDateString("en-US")}</Card.Header>
+            <Card.Header>{date.toLocaleDateString("en-US")}</Card.Header>
             <div className={eachDay.weather[0].icon}>
               <ul>
                 <li>Conditions: {eachDay.weather[0].description}</li>
                 <i>{eachDay.weather[0].icon}</i>
-                <li>High:{eachDay.temp.max}</li>
-                <li>Low: {eachDay.temp.min}</li>
+                <li>High: {Math.round(eachDay.temp.max)}°F</li>
+                <li>Low: {Math.round(eachDay.temp.min)}°F</li>
               </ul>
             </div>
           </Card.Content>
