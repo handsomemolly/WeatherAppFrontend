@@ -15,6 +15,8 @@ class Home extends Component {
     console.log(name)
   }
 
+
+
   componentDidMount() {
     fetch("http://localhost:3000/user_locations/render_request")
       .then((res) => res.json())
