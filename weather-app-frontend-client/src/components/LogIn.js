@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
-
+import { Redirect } from 'react-router-dom'
 
 class LogIn extends Component {
 
   state = {
     username: "",
     password: "",
-    user: {}
+    user: {},
+    redirect: false
   }
 
   handleLogin = (e) => {
@@ -32,14 +33,24 @@ class LogIn extends Component {
     .then (res => res.json())
     .then (user => {
       this.setState ({
-        user: user
+        user: user,
+        redirect: true
       })
     })
   }
 
+
+  renderRedirect = () => {
+     if (this.state.redirect) {
+       return <Redirect to='/Home' />
+     }
+   }
+
+
   render(){
     return (
       <div>
+        {this.renderRedirect()}
         <h3> Log In </h3>
         <form onSubmit ={(e) => this.handleSubmit(e)}>
 
@@ -53,6 +64,8 @@ class LogIn extends Component {
 
           <button type="submit">Log In</button>
         </form>
+        <button onClick={this.props.toggleButton} >Sign Up</button>
+        {this.renderRedirect()}
       </div>
     );
   }

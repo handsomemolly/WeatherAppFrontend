@@ -54,6 +54,7 @@ class Signup extends Component {
           </label>
           <button type="submit">Create Account</button>
         </form>
+        <button onClick={this.props.toggleButton} >Log In</button>
       </div>
     );
   }
