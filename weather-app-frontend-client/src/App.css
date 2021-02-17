@@ -37,7 +37,7 @@
   }
 }
 
-nav{
+nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -45,10 +45,17 @@ nav{
   color: white;
 }
 
-.NavStuff{
+.NavStuff {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 30%;
   list-style: none;
+}
+
+.Current-Weather {
+  background-image: url("http://openweathermap.org/img/wn/02d@2x.png");
+  background-repeat: no-repeat, repeat;
+  align-items: center;
+  justify-content: center;
 }

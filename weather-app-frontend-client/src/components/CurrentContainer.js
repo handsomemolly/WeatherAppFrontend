@@ -4,7 +4,7 @@ import CitySelect from "./CitySelect";
 class CurrentContainer extends React.Component {
   render() {
     return (
-      <div>
+      <div className="Current-Weather">
         <h3>
           Current Weather: <br></br>
           {this.props.current.weather[0].description}
