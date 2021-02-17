@@ -9,7 +9,7 @@ class Home extends Component {
     current: { weather: [{ description: "" }] },
     daily: [],
     name: "",
-    id: 0,
+    location_id: 0,
   };
 
   submitName = (e, name) => {
@@ -17,25 +17,25 @@ class Home extends Component {
     console.log(name);
   };
 
-  addToUserLocation = (e, id) => {
-    console.log(id);
-    //   let newUserLocation = {
-    //     default: false,
-    //     user_id: "",
-    //     location_id: id,
-    //   };
+  addToUserLocation = (e, location_id) => {
+    console.log(location_id);
+    let newUserLocation = {
+      default: false,
+      user_id: 3,
+      location_id: location_id,
+    };
 
-    //   fetch("http://localhost:3000/user_locations", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(newUserLocation),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((ul) => {
-    //       console.log(ul);
-    //     });
+    fetch("http://localhost:3000/user_locations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUserLocation),
+    })
+      .then((res) => res.json())
+      .then((userloc) => {
+        console.log(userloc);
+      });
   };
 
   componentDidMount() {
