@@ -8,9 +8,9 @@ class WeeklyContainer extends React.Component {
       let date = new Date(unixTime * 1000);
 
       // const imgURL = {eachDay.weather[0].icon}
-
+      // let modifiedClass = {eachDay.weather[0].icon}
       return (
-        <Card>
+        <Card className="Weekly">
           <Card.Content className="cardInfo">
             <Card.Header>{date.toLocaleDateString("en-US")}</Card.Header>
             <div className={eachDay.weather[0].icon}>
