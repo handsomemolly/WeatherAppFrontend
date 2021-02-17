@@ -15,6 +15,11 @@ class Home extends Component {
   submitName = (e, name) => {
     e.preventDefault();
     console.log(name);
+    fetch(`http://localhost:3000/user_locations/render_request?name=${name}`)
+      .then((res) => res.json())
+      .then((name) => {
+        this.setState({ current: name.lmao.current, daily: name.lmao.daily });
+      });
   };
 
   addToUserLocation = (e, location_id) => {
@@ -39,7 +44,9 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/user_locations/render_request")
+    fetch(
+      `http://localhost:3000/user_locations/render_request?name="San%20Francisco"`
+    )
       .then((res) => res.json())
       .then((data) => {
         this.setState({ current: data.lmao.current, daily: data.lmao.daily });
