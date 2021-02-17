@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
 import CitySelect from "./CitySelect";
+import userEvent from "@testing-library/user-event";
 
 class Home extends Component {
   state = {
@@ -18,6 +19,23 @@ class Home extends Component {
 
   addToUserLocation = (e, id) => {
     console.log(id);
+    //   let newUserLocation = {
+    //     default: false,
+    //     user_id: "",
+    //     location_id: id,
+    //   };
+
+    //   fetch("http://localhost:3000/user_locations", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(newUserLocation),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((ul) => {
+    //       console.log(ul);
+    //     });
   };
 
   componentDidMount() {
