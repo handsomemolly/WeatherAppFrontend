@@ -2,20 +2,41 @@ import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
 import CitySelect from "./CitySelect";
+import userEvent from "@testing-library/user-event";
 
 class Home extends Component {
   state = {
     current: { weather: [{ description: "" }] },
     daily: [],
-    name: ""
+    name: "",
+    location_id: 0,
   };
 
   submitName = (e, name) => {
-    e.preventDefault()
-    console.log(name)
-  }
+    e.preventDefault();
+    console.log(name);
+  };
 
+  addToUserLocation = (e, location_id) => {
+    console.log(location_id);
+    let newUserLocation = {
+      default: false,
+      user_id: 3,
+      location_id: location_id,
+    };
 
+    fetch("http://localhost:3000/user_locations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUserLocation),
+    })
+      .then((res) => res.json())
+      .then((userloc) => {
+        console.log(userloc);
+      });
+  };
 
   componentDidMount() {
     fetch("http://localhost:3000/user_locations/render_request")
@@ -29,7 +50,13 @@ class Home extends Component {
     return (
       <div>
         <h3> Home </h3>
-        <div> <CitySelect submitName={this.submitName}/> </div>
+        <div>
+          {" "}
+          <CitySelect
+            submitName={this.submitName}
+            addToUserLocation={this.addToUserLocation}
+          />{" "}
+        </div>
         <div>{<CurrentContainer current={this.state.current} />}</div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
       </div>
