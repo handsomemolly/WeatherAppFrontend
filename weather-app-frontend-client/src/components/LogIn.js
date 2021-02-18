@@ -37,25 +37,16 @@ class LogIn extends Component {
     .then (user => {
       this.setState ({
         user: user,
-        //redirect: true
+        redirect: true,
         logged: true
       })})
   }
 
-  // Used if we use redirect
-  // renderRedirect = () => {
-  //    if (this.state.redirect) {
-  //      return <Redirect to='/Home' />
-  //    }
-  //  }
-
-
   render(){
     return (
       <div>
-      {this.state.logged ? <Nav/> : <h3>Sign In</h3>}
+      {this.state.logged? <Redirect to='/Home'/> : <h3>Sign In</h3>}
         <form onSubmit ={(e) => this.handleSubmit(e)}>
-
           <label>
             <input onChange={(e) => this.handleLogin(e)}type="text" placeholder="username" id="username" name="username"/> <br/>
           </label>
@@ -66,7 +57,8 @@ class LogIn extends Component {
 
           <button type="submit">Login</button>
         </form>
-        <button onClick={this.props.toggleButton} >Sign Up</button>
+          <button onClick={this.props.toggleButton} >Sign Up</button>
+
 
       </div>
     );
