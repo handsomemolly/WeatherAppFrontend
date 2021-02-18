@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Redirect } from 'react-router-dom'
+import Nav from "../Nav";
 
 class LogIn extends Component {
 
@@ -7,7 +8,8 @@ class LogIn extends Component {
     username: "",
     password: "",
     user: {},
-    redirect: false
+    redirect: false,
+    logged: false
   }
 
   handleLogin = (e) => {
@@ -31,27 +33,27 @@ class LogIn extends Component {
       body: JSON.stringify(newUser)
     })
     .then (res => res.json())
+    .then (user => this.props.getUser(user))
     .then (user => {
       this.setState ({
         user: user,
-        redirect: true
-      })
-    })
+        //redirect: true
+        logged: true
+      })})
   }
 
-
-  renderRedirect = () => {
-     if (this.state.redirect) {
-       return <Redirect to='/Home' />
-     }
-   }
+  // Used if we use redirect
+  // renderRedirect = () => {
+  //    if (this.state.redirect) {
+  //      return <Redirect to='/Home' />
+  //    }
+  //  }
 
 
   render(){
     return (
       <div>
-        {this.renderRedirect()}
-        <h3> Log In </h3>
+      {this.state.logged ? <Nav/> : <h3>Sign In</h3>}
         <form onSubmit ={(e) => this.handleSubmit(e)}>
 
           <label>
@@ -62,10 +64,10 @@ class LogIn extends Component {
             <input onChange={(e) => this.handleLogin(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
           </label>
 
-          <button type="submit">Log In</button>
+          <button type="submit">Login</button>
         </form>
         <button onClick={this.props.toggleButton} >Sign Up</button>
-        {this.renderRedirect()}
+
       </div>
     );
   }

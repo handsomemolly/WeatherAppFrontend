@@ -11,8 +11,8 @@ class Nav extends Component {
           <Link to="/Home">
             <li> Home </li>
           </Link>
-          <Link to="/Welcome">
-            <li> Sign Up/Log In </li>
+          <Link to="/Edit">
+            <li> Edit Account </li>
           </Link>
         </ul>
       </nav>

@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
 import CitySelect from "./CitySelect";
+import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
+import Nav from "../Nav";
+import UserContainer from './UserContainer'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Home extends Component {
   state = {
@@ -49,6 +53,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Nav/>
         <h3> Home </h3>
         <div>
           {" "}

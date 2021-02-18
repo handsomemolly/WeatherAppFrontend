@@ -16,10 +16,11 @@ class UserContainer extends Component {
     })
   }
 
+
   render(){
     return (
       <div>
-        {this.state.loginSwitch ? <LogIn toggleButton={this.showLogIn}/> : <Signup toggleButton={this.showLogIn}/>}
+        {this.state.loginSwitch ? <LogIn toggleButton={this.showLogIn} getUser={this.props.getUser}/> : <Signup toggleButton={this.showLogIn}/>}
       </div>
     );
   }
