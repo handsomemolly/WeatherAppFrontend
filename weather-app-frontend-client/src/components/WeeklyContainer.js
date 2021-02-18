@@ -3,28 +3,40 @@ import { Card } from "semantic-ui-react";
 
 class WeeklyContainer extends React.Component {
   generateForecast = () => {
-    return this.props.daily.map((eachDay) => {
+    let newForecast = [...this.props.daily];
+    newForecast.shift();
+    return newForecast.map((eachDay) => {
       let unixTime = eachDay.dt;
       let date = new Date(unixTime * 1000);
 
       return (
-        <Card className="Weekly">
-          <Card.Content className="cardInfo">
-            <Card.Header>{date.toLocaleDateString("en-US")}</Card.Header>
-            <div className={"i" + eachDay.weather[0].icon}>
-              <ul>
-                <li>Conditions: {eachDay.weather[0].description}</li>
-                <li>High: {Math.round(eachDay.temp.max)}°F</li>
-                <li>Low: {Math.round(eachDay.temp.min)}°F</li>
-              </ul>
-            </div>
-          </Card.Content>
-        </Card>
+        <td>
+          <Card>
+            <Card.Content className="cardInfo">
+              <Card.Header>{date.toLocaleDateString("en-US")}</Card.Header>
+              <div className={"i" + eachDay.weather[0].icon}>
+                <ul>
+                  <p>Conditions: {eachDay.weather[0].description}</p>
+                  <p>High: {Math.round(eachDay.temp.max)}°F</p>
+                  <p>Low: {Math.round(eachDay.temp.min)}°F</p>
+                </ul>
+              </div>
+            </Card.Content>
+          </Card>
+        </td>
       );
     });
   };
   render() {
-    return <div>{<ul> {this.generateForecast()} </ul>}</div>;
+    return (
+      <div>
+        <table className="Weekly">
+          <tbody>
+            <tr>{this.generateForecast()}</tr>
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
 
