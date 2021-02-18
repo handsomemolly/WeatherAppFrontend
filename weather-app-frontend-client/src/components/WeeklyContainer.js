@@ -7,8 +7,6 @@ class WeeklyContainer extends React.Component {
       let unixTime = eachDay.dt;
       let date = new Date(unixTime * 1000);
 
-      // const imgURL = {eachDay.weather[0].icon}
-      // let modifiedClass = {eachDay.weather[0].icon}
       return (
         <Card className="Weekly">
           <Card.Content className="cardInfo">

@@ -11,6 +11,16 @@ class Home extends Component {
     daily: [],
     name: "",
     location_id: 0,
+    user_locations: [],
+  };
+
+  showLocations = () => {
+    return fetch(`http://localhost:3000/user_locations`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ user_locations: data });
+        console.log(this.state);
+      });
   };
 
   submitName = (e, name) => {
@@ -45,6 +55,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
+    this.showLocations();
     fetch(
       `http://localhost:3000/user_locations/render_request?name="San%20Francisco"`
     )
@@ -57,7 +68,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h3> Home </h3>
+        <h3> It's Weather Time </h3>
         <div>
           {" "}
           <CitySelect
@@ -68,7 +79,10 @@ class Home extends Component {
         <div>{<CurrentContainer current={this.state.current} />}</div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
         <div>
-          <UserLocations />
+          <UserLocations
+            showLocations={this.showLocations}
+            user_locations={this.state.user_locations}
+          />
         </div>
       </div>
     );
