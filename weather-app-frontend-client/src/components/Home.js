@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
 import CitySelect from "./CitySelect";
+import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
 import UserLocations from "./UserLocations";
+import Nav from "../Nav";
+import UserContainer from "./UserContainer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Home extends Component {
   state = {
@@ -21,6 +25,7 @@ class Home extends Component {
         this.setState({ user_locations: data });
         console.log(this.state);
       });
+    // selectedLocations: {}
   };
 
   submitName = (e, name) => {
@@ -37,7 +42,7 @@ class Home extends Component {
     console.log(location_id);
     let newUserLocation = {
       default: false,
-      user_id: 3,
+      user_id: this.props.userInfo.id,
       location_id: location_id,
     };
 
@@ -68,7 +73,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h3> It's Weather Time </h3>
+        <Nav />
+        <h3> Home </h3>
         <div>
           {" "}
           <CitySelect

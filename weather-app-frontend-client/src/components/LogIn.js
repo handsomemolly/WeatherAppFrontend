@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
-
+import { Redirect } from 'react-router-dom'
+import Nav from "../Nav";
 
 class LogIn extends Component {
 
   state = {
     username: "",
     password: "",
-    user: {}
+    user: {},
+    redirect: false,
+    logged: false
   }
 
   handleLogin = (e) => {
@@ -30,19 +33,20 @@ class LogIn extends Component {
       body: JSON.stringify(newUser)
     })
     .then (res => res.json())
+    .then (user => this.props.getUser(user))
     .then (user => {
       this.setState ({
-        user: user
-      })
-    })
+        user: user,
+        redirect: true,
+        logged: true
+      })})
   }
 
   render(){
     return (
       <div>
-        <h3> Log In </h3>
+        <h3>Sign In</h3>
         <form onSubmit ={(e) => this.handleSubmit(e)}>
-
           <label>
             <input onChange={(e) => this.handleLogin(e)}type="text" placeholder="username" id="username" name="username"/> <br/>
           </label>
@@ -51,8 +55,12 @@ class LogIn extends Component {
             <input onChange={(e) => this.handleLogin(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
           </label>
 
-          <button type="submit">Log In</button>
+          <button type="submit">Login</button>
         </form>
+          <button onClick={this.props.toggleButton} >Sign Up</button>
+          {this.state.logged? <Redirect to='/Home'/> : null}
+
+
       </div>
     );
   }
