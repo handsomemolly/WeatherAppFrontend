@@ -31,7 +31,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-          <Route exact path="/Home" component={Home} />
+          <Route exact path="/Home" render={() => {return <Home userInfo={this.state.user} />}} />
           <Route exact path="/Welcome" render={() => {return <UserContainer getUser={this.getUser} />}}/>
           <Route path="/Edit" render={() => {return <EditAccount userInfo={this.state.user} />}}/>
           </Switch>

@@ -14,6 +14,7 @@ class Home extends Component {
     daily: [],
     name: "",
     location_id: 0,
+    selectedLocations: {}
   };
 
   submitName = (e, name) => {
@@ -25,7 +26,7 @@ class Home extends Component {
     console.log(location_id);
     let newUserLocation = {
       default: false,
-      user_id: 3,
+      user_id: this.props.userInfo.id,
       location_id: location_id,
     };
 

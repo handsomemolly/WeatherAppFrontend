@@ -28,6 +28,7 @@ class EditAccount extends Component {
     })
     .then (res => res.json())
     .then (console.log("UPDATED"))
+    .then (message => alert("Account Updated!"))
   }
 
   handleDelete = () => {
@@ -38,6 +39,7 @@ class EditAccount extends Component {
     .then (redir => this.setState({
       redirect: true
     }))
+    .then (message => alert("Account Deleted! :( )"))
   }
 
   render() {

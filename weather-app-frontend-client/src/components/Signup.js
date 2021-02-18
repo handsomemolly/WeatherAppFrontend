@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Redirect } from 'react-router-dom'
 
 
 class Signup extends Component {
@@ -6,7 +7,8 @@ class Signup extends Component {
   state ={
     email: "",
     username: "",
-    password: ""
+    password: "",
+    redirect: false
   }
 
   handleChange = (e) => {
@@ -31,9 +33,14 @@ class Signup extends Component {
       body: JSON.stringify(newUser)
     })
     .then (res => res.json())
+    .then (user => this.props.getUser(user))
     .then (user => {
-      console.log(user)
-    })
+      this.setState ({
+        user: user,
+        redirect: true
+      })})
+    .then (message => alert("Account Created!"))
+
   }
   render(){
     return (
@@ -55,6 +62,7 @@ class Signup extends Component {
           <button type="submit">Create Account</button>
         </form>
         <button onClick={this.props.toggleButton} >Login</button>
+        {this.state.redirect ? <Redirect to= '/Home' /> : null}
       </div>
     );
   }

@@ -45,7 +45,7 @@ class LogIn extends Component {
   render(){
     return (
       <div>
-      {this.state.logged? <Redirect to='/Home'/> : <h3>Sign In</h3>}
+        <h3>Sign In</h3>
         <form onSubmit ={(e) => this.handleSubmit(e)}>
           <label>
             <input onChange={(e) => this.handleLogin(e)}type="text" placeholder="username" id="username" name="username"/> <br/>
@@ -58,6 +58,7 @@ class LogIn extends Component {
           <button type="submit">Login</button>
         </form>
           <button onClick={this.props.toggleButton} >Sign Up</button>
+          {this.state.logged? <Redirect to='/Home'/> : null}
 
 
       </div>
