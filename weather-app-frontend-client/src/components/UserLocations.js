@@ -16,10 +16,15 @@ class UserLocations extends React.Component {
   renderLocations = () => {
     return this.props.user_locations.map((location) => {
       return (
-        <div>
-          <li>{location.id}</li>
-          <button>Test</button>
-        </div>
+        <tr>
+          <td>{location.id}</td>
+          <td>
+            <button>Show Forecast</button>
+          </td>
+          <td>
+            <button>Remove Location</button>
+          </td>
+        </tr>
       );
     });
   };
@@ -28,7 +33,16 @@ class UserLocations extends React.Component {
     return (
       <div>
         <h2>My Locations</h2>
-        <ul>{this.renderLocations()}</ul>
+        <table>
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Test</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{this.renderLocations()}</tbody>
+        </table>
       </div>
     );
   }
