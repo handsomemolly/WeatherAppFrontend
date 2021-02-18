@@ -1,25 +1,24 @@
 import React from "react";
 class UserLocations extends React.Component {
-  //   state = {
-  //     user_locations: [],
-  //   };
+  state = {
+    selected: "",
+  };
 
-  //   showLocations = () => {
-  //     return fetch(`http://localhost:3000/user_locations`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         this.setState({ user_locations: data });
-  //         console.log(this.state);
-  //       });
-  //   };
+  componentDidMount() {
+    this.renderLocations();
+  }
 
   renderLocations = () => {
     return this.props.user_locations.map((location) => {
       return (
         <tr>
-          <td>{location.id}</td>
+          <td>{location.city}</td>
           <td>
-            <button>Show Forecast</button>
+            <button
+              onClick={(e) => this.setState({ selected: e.target.value })}
+            >
+              >Show Forecast
+            </button>
           </td>
           <td>
             <button>Remove Location</button>

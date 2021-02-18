@@ -19,10 +19,10 @@ class Home extends Component {
   };
 
   showLocations = () => {
-    return fetch(`http://localhost:3000/user_locations`)
+    return fetch(`http://localhost:3000/users/${this.props.userInfo.id}`)
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ user_locations: data });
+        this.setState({ user_locations: data.locations });
         console.log(this.state);
       });
     // selectedLocations: {}
@@ -38,13 +38,16 @@ class Home extends Component {
       });
   };
 
-  addToUserLocation = (e, location_id) => {
-    console.log(location_id);
+  addToUserLocation = (e, location) => {
+    console.log(location);
     let newUserLocation = {
       default: false,
       user_id: this.props.userInfo.id,
-      location_id: location_id,
+      location_id: location.id,
     };
+    this.setState({
+      user_locations: [...this.state.user_locations, location],
+    });
 
     fetch("http://localhost:3000/user_locations", {
       method: "POST",
@@ -67,7 +70,7 @@ class Home extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({ current: data.lmao.current, daily: data.lmao.daily });
-        console.log(this.state);
+        // console.log(this.state);
       });
   }
   render() {

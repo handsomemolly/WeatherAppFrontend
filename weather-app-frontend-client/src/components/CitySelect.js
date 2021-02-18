@@ -37,7 +37,7 @@ class CitySelect extends React.Component {
               e,
               this.state.locations.find(
                 (location) => this.state.selected === location.city
-              ).id
+              )
             )
           }
           type="button"
