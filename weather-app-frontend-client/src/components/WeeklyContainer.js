@@ -11,8 +11,8 @@ class WeeklyContainer extends React.Component {
 
       return (
         <td>
-          <Card>
-            <Card.Content className="cardInfo">
+          <Card className="cardInfo">
+            <Card.Content>
               <Card.Header>{date.toLocaleDateString("en-US")}</Card.Header>
               <div className={"i" + eachDay.weather[0].icon}>
                 <ul>
@@ -29,12 +29,13 @@ class WeeklyContainer extends React.Component {
   };
   render() {
     return (
-      <div>
-        <table className="Weekly">
+      <div className="mx-auto">
+        <table>
           <tbody>
             <tr>{this.generateForecast()}</tr>
           </tbody>
         </table>
+        <br></br>
       </div>
     );
   }

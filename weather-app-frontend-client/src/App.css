@@ -146,7 +146,21 @@ html {
   background-color: black;
 }
 
-.iu.card.Current-Card {
-  align-items: center;
+.mx-auto {
+  display: flex;
+  padding: 10px;
+}
+
+.UserLocations {
+  width: 97%;
+  display: flex;
   justify-content: center;
+}
+
+.cardInfo {
+  width: 5%;
+}
+
+.weeklydiv {
+  width: 85%;
 }
