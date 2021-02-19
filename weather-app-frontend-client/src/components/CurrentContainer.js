@@ -5,7 +5,7 @@ import CitySelect from "./CitySelect";
 class CurrentContainer extends React.Component {
   render() {
     return (
-      <Card className="Current-Card">
+      <Card className="mx-auto">
         <Card.Content>
           <div className="Current-Weather">
             <h3>

@@ -146,7 +146,7 @@ html {
   background-color: black;
 }
 
-.Current-Card {
+.iu.card.Current-Card {
   align-items: center;
   justify-content: center;
 }
