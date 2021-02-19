@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CurrentContainer from "./CurrentContainer";
 import WeeklyContainer from "./WeeklyContainer";
+import UserLocations from "./UserLocations";
 import CitySelect from "./CitySelect";
 import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
