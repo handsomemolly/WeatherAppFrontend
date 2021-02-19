@@ -16,9 +16,15 @@ class Home extends Component {
     name: "",
     location_id: 0,
     user_locations: [],
-    selected: "",
+    selected: "San Francisco",
     locations: [],
   };
+
+  // deleteUserLocation = (location) => {
+  //   fetch(`http://localhost:3000/user_locations/${location.id}`,{
+  //     method: "DELETE",
+  //   })
+  // }
 
   cityList = () => {
     fetch("http://localhost:3000/locations")
