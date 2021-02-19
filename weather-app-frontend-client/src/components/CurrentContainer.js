@@ -10,7 +10,8 @@ class CurrentContainer extends React.Component {
           <Card.Content>
             <div className="Current-Weather">
               <h3>
-                Current Weather in: {this.props.selected} <br></br>
+                Current Weather in: <br></br>
+                {this.props.selected} <br></br>
                 {this.props.current.weather[0].description}
               </h3>
               <p>Temp: {Math.round(this.props.current.temp)}°F</p>
