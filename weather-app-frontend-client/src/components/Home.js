@@ -6,7 +6,7 @@ import CitySelect from "./CitySelect";
 import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
 import Nav from "../Nav";
-import UserContainer from './UserContainer'
+import UserContainer from "./UserContainer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Home extends Component {
@@ -98,7 +98,10 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/user_locations/render_request")
+    this.showLocations();
+    fetch(
+      `http://localhost:3000/user_locations/render_request?name="San%20Francisco"`
+    )
       .then((res) => res.json())
       .then((data) => {
         this.setState({ current: data.lmao.current, daily: data.lmao.daily });
@@ -108,7 +111,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        <Nav />
         <h3> Home </h3>
 
         <div>
