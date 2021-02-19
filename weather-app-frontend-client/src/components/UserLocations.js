@@ -25,16 +25,16 @@ class UserLocations extends React.Component {
   render() {
     return (
       <div>
-        <h2>My Locations</h2>
+        <h2 className='text-white'>My Locations</h2>
         <table>
           <thead>
             <tr>
-              <th>City</th>
-              <th>Test</th>
+              <th className="text-white">City</th>
+              <th className="text-white">Test</th>
               <th></th>
             </tr>
           </thead>
-          <tbody>{this.renderLocations()}</tbody>
+          <tbody className='text-white'>{this.renderLocations()}</tbody>
         </table>
       </div>
     );

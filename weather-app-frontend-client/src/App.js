@@ -8,6 +8,7 @@ import UserContainer from './components/UserContainer'
 import EditAccount from "./components/EditAccount";
 import Nav from "./Nav";
 import {Redirect} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {

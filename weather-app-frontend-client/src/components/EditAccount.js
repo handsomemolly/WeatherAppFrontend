@@ -50,24 +50,37 @@ class EditAccount extends Component {
     return (
       <div>
         <Nav/>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.email} id="email" name="email"/> <br/>
-          </label>
-
-          <label>
-            <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.username}  id="username" name="username"/> <br/>
-          </label>
-
-          <label>
-            <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.password}id="password" name="password"/> <br/>
-          </label>
-            <button type="submit">Update Account</button>
-        </form>
-          <button onClick ={() =>  this.handleDelete()}> Delete Account </button>
-          <button onClick ={() =>  this.props.handleLogout()}> Log Out </button>
-          {this.state.redirect ? <Redirect to='/Welcome'/> : null}
-      </div>
+          <div className="a">
+          <div className="col-lg-4">
+            <div className="card bg-dark card-form">
+              <div className="card-body">
+                <h3 className="text-white"> Update Account </h3>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                  <div className="form-group">
+                    <label className="text-white"> Email Address:
+                      <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.email} id="email" name="email"/> <br/>
+                    </label>
+                  </div>
+                  <div className="form-group">
+                    <label className="text-white"> Username:
+                      <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.username}  id="username" name="username"/> <br/>
+                    </label >
+                  </div>
+                  <div className="form-group">
+                    <label className="text-white"> Password:
+                      <input onChange={e => this.handleChange(e)} type="text" defaultValue={this.props.userInfo.password}id="password" name="password"/> <br/>
+                    </label>
+                  </div>
+                    <button className="btn btn-outline-light btn-block" type="submit">Update Account</button>
+                </form>
+                  <button className="btn btn-outline-light btn-block" onClick ={() =>  this.handleDelete()}> Delete Account </button>
+                  <button className="btn btn-outline-light btn-block" onClick ={() =>  this.props.handleLogout()}> Log Out </button>
+                  {this.state.redirect ? <Redirect to='/Welcome'/> : null}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
     );
   }
 }

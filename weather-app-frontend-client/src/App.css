@@ -41,8 +41,12 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: gray;
+  background: #fc9c54;
   color: white;
+}
+
+.navbar {
+  height: 55px;
 }
 
 .NavStuff {
@@ -112,4 +116,34 @@ nav {
 .i13n {
   background-image: url(http://openweathermap.org/img/wn/13n@2x.png);
   background-repeat: no-repeat, repeat;
+}
+
+
+.App {
+  background: #273849;
+}
+
+.col-lg-4 {
+  align-content: center;
+}
+
+.text-white {
+  color: white;
+  font-weight: bolder;
+}
+
+.nav-text {
+  font-weight: bolder;
+}
+
+
+.card-body {
+  margin: auto !important;
+  width: 50% !important;
+  border: 3px !important;
+  padding: 10px !important;
+}
+
+html {
+  background-color: black;
 }
