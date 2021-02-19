@@ -20,7 +20,7 @@ class UserContainer extends Component {
   render(){
     return (
       <div>
-        {this.state.loginSwitch ? <LogIn toggleButton={this.showLogIn} getUser={this.props.getUser}/> : <Signup toggleButton={this.showLogIn} getUser={this.props.getUser}/>}
+        {this.state.loginSwitch ? <LogIn toggleButton={this.showLogIn} getUser={this.props.getUser} loggedIn={this.props.loggedIn}/> : <Signup toggleButton={this.showLogIn} getUser={this.props.getUser}/>}
       </div>
     );
   }

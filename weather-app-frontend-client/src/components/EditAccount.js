@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import Nav from "../Nav";
 import {Redirect} from 'react-router-dom'
+import LogOut from './LogOut'
+
 class EditAccount extends Component {
 
   state = {
     email: this.props.userInfo.email,
     username: this.props.userInfo.username,
     password: this.props.userInfo.password,
+    login: !this.props.logged,
     redirect: false
   }
 
@@ -15,6 +18,7 @@ class EditAccount extends Component {
       [e.target.name]: e.target.value
     })
   }
+
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -61,6 +65,7 @@ class EditAccount extends Component {
             <button type="submit">Update Account</button>
         </form>
           <button onClick ={() =>  this.handleDelete()}> Delete Account </button>
+          <button onClick ={() =>  this.props.handleLogout()}> Log Out </button>
           {this.state.redirect ? <Redirect to='/Welcome'/> : null}
       </div>
     );

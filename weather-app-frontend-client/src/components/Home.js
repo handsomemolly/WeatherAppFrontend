@@ -4,9 +4,8 @@ import WeeklyContainer from "./WeeklyContainer";
 import CitySelect from "./CitySelect";
 import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
-import UserLocations from "./UserLocations";
 import Nav from "../Nav";
-import UserContainer from "./UserContainer";
+import UserContainer from './UserContainer'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Home extends Component {
@@ -15,27 +14,12 @@ class Home extends Component {
     daily: [],
     name: "",
     location_id: 0,
-    user_locations: [],
-  };
-
-  showLocations = () => {
-    return fetch(`http://localhost:3000/user_locations`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ user_locations: data });
-        console.log(this.state);
-      });
-    // selectedLocations: {}
+    selectedLocations: {}
   };
 
   submitName = (e, name) => {
     e.preventDefault();
     console.log(name);
-    fetch(`http://localhost:3000/user_locations/render_request?name=${name}`)
-      .then((res) => res.json())
-      .then((name) => {
-        this.setState({ current: name.lmao.current, daily: name.lmao.daily });
-      });
   };
 
   addToUserLocation = (e, location_id) => {
@@ -60,10 +44,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    this.showLocations();
-    fetch(
-      `http://localhost:3000/user_locations/render_request?name="San%20Francisco"`
-    )
+    fetch("http://localhost:3000/user_locations/render_request")
       .then((res) => res.json())
       .then((data) => {
         this.setState({ current: data.lmao.current, daily: data.lmao.daily });
@@ -73,8 +54,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav/>
         <h3> Home </h3>
+
         <div>
           {" "}
           <CitySelect
@@ -84,12 +66,6 @@ class Home extends Component {
         </div>
         <div>{<CurrentContainer current={this.state.current} />}</div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
-        <div>
-          <UserLocations
-            showLocations={this.showLocations}
-            user_locations={this.state.user_locations}
-          />
-        </div>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Redirect } from 'react-router-dom'
 import Nav from "../Nav";
 
+
 class LogIn extends Component {
 
   state = {

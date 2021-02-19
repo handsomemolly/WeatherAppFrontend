@@ -6907,6 +6907,19 @@
   "resolved" "https://registry.npmjs.org/klona/-/klona-2.0.4.tgz"
   "version" "2.0.4"
 
+"koekiemonster@1.0.x":
+  "integrity" "sha1-roFFQo2Y5KCzRKgxU5Nu189Nk+8="
+  "resolved" "https://registry.npmjs.org/koekiemonster/-/koekiemonster-1.0.0.tgz"
+  "version" "1.0.0"
+
+"koekje@^0.1.0":
+  "integrity" "sha1-BIGUfHLFVrGBacCll11w2P2o47c="
+  "resolved" "https://registry.npmjs.org/koekje/-/koekje-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "koekiemonster" "1.0.x"
+    "querystringify" "1.0.x"
+
 "language-subtag-registry@~0.3.2":
   "integrity" "sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg=="
   "resolved" "https://registry.npmjs.org/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz"
@@ -7761,6 +7774,11 @@
     "define-properties" "^1.1.3"
     "es-abstract" "^1.18.0-next.1"
     "has" "^1.0.3"
+
+"objstorage@^1.0.0":
+  "integrity" "sha512-wBnDLmz20/Xv3USZbpiKxV3A1wAq1Ezl87yAZ9INSjqB/0+efNjSG9m6gq0dYPNB4yzobGdA/vkYQuxUJRjYVQ=="
+  "resolved" "https://registry.npmjs.org/objstorage/-/objstorage-1.0.0.tgz"
+  "version" "1.0.0"
 
 "obuf@^1.0.0", "obuf@^1.1.2":
   "integrity" "sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg=="
@@ -9066,6 +9084,16 @@
   "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-2.2.0.tgz"
   "version" "2.2.0"
 
+"querystringify@0.0.x":
+  "integrity" "sha1-DPf4T5Rj/wrlHExLFC2VvjdyTZw="
+  "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-0.0.4.tgz"
+  "version" "0.0.4"
+
+"querystringify@1.0.x":
+  "integrity" "sha1-YoYkIRLFtxL6ZU5SZlK/ahP/Bcs="
+  "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-1.0.0.tgz"
+  "version" "1.0.0"
+
 "raf@^3.4.1":
   "integrity" "sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA=="
   "resolved" "https://registry.npmjs.org/raf/-/raf-3.4.1.tgz"
@@ -10096,6 +10124,15 @@
     "escape-html" "~1.0.3"
     "parseurl" "~1.3.3"
     "send" "0.17.1"
+
+"sessionstorage@^0.1.0":
+  "integrity" "sha512-z0PrRunU4LRiP73qfXyynz9AZwBDVDmwEFDyA4GAETONnFewp5ZY0BY/1T31bR8XsVOXEtSPIS7BU+ecZhFmcQ=="
+  "resolved" "https://registry.npmjs.org/sessionstorage/-/sessionstorage-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "koekje" "^0.1.0"
+    "objstorage" "^1.0.0"
+    "window.name" "^0.0.3"
 
 "set-blocking@^2.0.0":
   "integrity" "sha1-BF+XgtARrppoA93TgrJDkrPYkPc="
@@ -11600,6 +11637,13 @@
   "version" "2.0.2"
   dependencies:
     "isexe" "^2.0.0"
+
+"window.name@^0.0.3":
+  "integrity" "sha1-RUo9pwbUJBhwmidT77NgmLZTb1k="
+  "resolved" "https://registry.npmjs.org/window.name/-/window.name-0.0.3.tgz"
+  "version" "0.0.3"
+  dependencies:
+    "querystringify" "0.0.x"
 
 "word-wrap@^1.2.3", "word-wrap@~1.2.3":
   "integrity" "sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ=="
