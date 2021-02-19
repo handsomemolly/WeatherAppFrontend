@@ -17,7 +17,7 @@ class App extends Component {
     username: "",
     password: "",
     user: {},
-    redirect: true,
+    redirect: false,
     logged: false,
   };
 
@@ -57,6 +57,13 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return <UserContainer getUser={this.getUser} />;
+              }}
+            />
             <Route
               exact
               path="/Home"
