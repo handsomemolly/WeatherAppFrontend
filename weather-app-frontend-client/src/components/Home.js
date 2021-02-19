@@ -14,21 +14,74 @@ class Home extends Component {
     daily: [],
     name: "",
     location_id: 0,
-    selectedLocations: {}
+    user_locations: [],
+    selected: "San Francisco",
+    locations: [],
+  };
+
+  // deleteUserLocation = (location) => {
+  //   fetch(`http://localhost:3000/user_locations/${location.id}`,{
+  //     method: "DELETE",
+  //   })
+  // }
+
+  cityList = () => {
+    fetch("http://localhost:3000/locations")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          locations: data,
+        });
+      });
+  };
+
+  showLocations = () => {
+    return fetch(`http://localhost:3000/users/${this.props.userInfo.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ user_locations: data.locations });
+        console.log(this.state);
+      });
+    // selectedLocations: {}
+  };
+
+  selectLocation = (e) => {
+    this.setState({ selected: e.target.value });
+    // return e.target.value;
+  };
+
+  selectLocation2 = (name) => {
+    console.log(name);
+    this.setState({
+      selected: name,
+    });
+    this.fetchSelectedForecast(name);
+  };
+
+  fetchSelectedForecast = (name) => {
+    fetch(`http://localhost:3000/user_locations/render_request?name=${name}`)
+      .then((res) => res.json())
+      .then((name) => {
+        this.setState({ current: name.lmao.current, daily: name.lmao.daily });
+      });
   };
 
   submitName = (e, name) => {
     e.preventDefault();
+    this.fetchSelectedForecast(name);
     console.log(name);
   };
 
-  addToUserLocation = (e, location_id) => {
-    console.log(location_id);
+  addToUserLocation = (e, location) => {
+    console.log(location);
     let newUserLocation = {
       default: false,
       user_id: this.props.userInfo.id,
-      location_id: location_id,
+      location_id: location.id,
     };
+    this.setState({
+      user_locations: [...this.state.user_locations, location],
+    });
 
     fetch("http://localhost:3000/user_locations", {
       method: "POST",
@@ -48,7 +101,7 @@ class Home extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({ current: data.lmao.current, daily: data.lmao.daily });
-        console.log(this.state);
+        // console.log(this.state);
       });
   }
   render() {
@@ -62,10 +115,28 @@ class Home extends Component {
           <CitySelect
             submitName={this.submitName}
             addToUserLocation={this.addToUserLocation}
+            selectLocation={this.selectLocation}
+            cityList={this.cityList}
+            stateData={this.state}
           />{" "}
         </div>
-        <div>{<CurrentContainer current={this.state.current} />}</div>
+        <div>
+          {
+            <CurrentContainer
+              current={this.state.current}
+              selected={this.state.selected}
+            />
+          }
+        </div>
         <div>{<WeeklyContainer daily={this.state.daily} />}</div>
+        <div>
+          <UserLocations
+            showLocations={this.showLocations}
+            user_locations={this.state.user_locations}
+            selectLocation={this.selectLocation2}
+            stateData={this.state}
+          />
+        </div>
       </div>
     );
   }

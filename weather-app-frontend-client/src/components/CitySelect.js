@@ -1,32 +1,26 @@
 import React from "react";
 
 class CitySelect extends React.Component {
-  state = {
-    locations: [],
-    selected: "",
-    id: 0,
-  };
+  // state = {
+  //   locations: [],
+  //   id: 0,
+  // };
 
   componentDidMount() {
-    this.cityList();
+    this.props.cityList();
   }
-  cityList = () => {
-    fetch("http://localhost:3000/locations")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          locations: data,
-        });
-      });
-  };
 
   render() {
     return (
-      <form onSubmit={(e) => this.props.submitName(e, this.state.selected)}>
-        <select onChange={(e) => this.setState({ selected: e.target.value })}>
+      <form
+        onSubmit={(e) =>
+          this.props.submitName(e, this.props.stateData.selected)
+        }
+      >
+        <select onChange={(e) => this.props.selectLocation(e)}>
           <option selected="">Select City </option>
-          {this.state.locations.length > 0 &&
-            this.state.locations.map((location) => {
+          {this.props.stateData.locations.length > 0 &&
+            this.props.stateData.locations.map((location) => {
               return <option>{location.city}</option>;
             })}
         </select>
@@ -35,9 +29,9 @@ class CitySelect extends React.Component {
           onClick={(e) =>
             this.props.addToUserLocation(
               e,
-              this.state.locations.find(
-                (location) => this.state.selected === location.city
-              ).id
+              this.props.stateData.locations.find(
+                (location) => this.props.stateData.selected === location.city
+              )
             )
           }
           type="button"
