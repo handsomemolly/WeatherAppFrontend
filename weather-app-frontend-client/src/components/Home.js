@@ -21,11 +21,17 @@ class Home extends Component {
     locations: [],
   };
 
-  // deleteUserLocation = (location) => {
-  //   fetch(`http://localhost:3000/user_locations/${location.id}`,{
-  //     method: "DELETE",
-  //   })
-  // }
+  deleteUserLocation = (location) => {
+    fetch(`http://localhost:3000/user_locations/${location.id}`, {
+      method: "DELETE",
+    }).then(() =>
+      this.setState({
+        user_locations: [...this.state.user_locations].filter(
+          (loc) => loc.id !== location.id
+        ),
+      })
+    );
+  };
 
   cityList = () => {
     fetch("http://localhost:3000/locations")
@@ -139,6 +145,7 @@ class Home extends Component {
             user_locations={this.state.user_locations}
             selectLocation={this.selectLocation2}
             stateData={this.state}
+            deleteUserLocation={this.deleteUserLocation}
           />
         </div>
       </div>

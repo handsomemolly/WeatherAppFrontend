@@ -15,7 +15,9 @@ class UserLocations extends React.Component {
             </button>
           </td>
           <td>
-            <button>Remove Location</button>
+            <button onClick={() => this.props.deleteUserLocation(location)}>
+              Remove Location
+            </button>
           </td>
         </tr>
       );
@@ -25,7 +27,7 @@ class UserLocations extends React.Component {
   render() {
     return (
       <div>
-        <h2 className='text-white'>My Locations</h2>
+        <h2 className="text-white">My Locations</h2>
         <table>
           <thead>
             <tr>
@@ -34,7 +36,7 @@ class UserLocations extends React.Component {
               <th></th>
             </tr>
           </thead>
-          <tbody className='text-white'>{this.renderLocations()}</tbody>
+          <tbody className="text-white">{this.renderLocations()}</tbody>
         </table>
       </div>
     );
