@@ -1,9 +1,5 @@
 import React from "react";
 class UserLocations extends React.Component {
-  state = {
-    selected: "",
-  };
-
   componentDidMount() {
     this.renderLocations();
   }
@@ -14,10 +10,8 @@ class UserLocations extends React.Component {
         <tr>
           <td>{location.city}</td>
           <td>
-            <button
-              onClick={(e) => this.setState({ selected: e.target.value })}
-            >
-              >Show Forecast
+            <button onClick={() => this.props.selectLocation(location.city)}>
+              Show Forecast
             </button>
           </td>
           <td>
