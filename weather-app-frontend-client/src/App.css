@@ -118,7 +118,6 @@ nav {
   background-repeat: no-repeat, repeat;
 }
 
-
 .App {
   background: #273849;
 }
@@ -136,7 +135,6 @@ nav {
   font-weight: bolder;
 }
 
-
 .card-body {
   margin: auto !important;
   width: 50% !important;
@@ -146,4 +144,9 @@ nav {
 
 html {
   background-color: black;
+}
+
+.Current-Card {
+  align-items: center;
+  justify-content: center;
 }
