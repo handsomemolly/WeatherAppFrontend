@@ -44,25 +44,37 @@ class Signup extends Component {
   }
   render(){
     return (
-
       <div>
-        <h3> Sign up here </h3>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            <input onChange={e => this.handleChange(e)} type="text" placeholder="email" id="email" name="email"/> <br/>
-          </label>
+        <div className="col-lg-4">
+          <div className="card bg-dark card-form">
+            <div className="card-body">
+                <h3> Sign Up </h3>
 
-          <label>
-            <input onChange={e => this.handleChange(e)} type="text" placeholder="username" id="username" name="username"/> <br/>
-          </label>
+                  <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className="form-group">
+                    <label>
+                      <input className="form-control form-control-lg" onChange={e => this.handleChange(e)} type="text" placeholder="email" id="email" name="email"/> <br/>
+                    </label>
+                    </div>
 
-          <label>
-            <input onChange={e => this.handleChange(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
-          </label>
-          <button type="submit">Create Account</button>
-        </form>
-        <button onClick={this.props.toggleButton} >Click here to sign in</button>
-        {this.state.redirect ? <Redirect to= '/Home' /> : null}
+                    <div className="form-group">
+                    <label>
+                      <input className="form-control form-control-lg" onChange={e => this.handleChange(e)} type="text" placeholder="username" id="username" name="username"/> <br/>
+                    </label>
+                    </div>
+                    <div className="form-group">
+                    <label>
+                      <input className="form-control form-control-lg" onChange={e => this.handleChange(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
+                    </label>
+                    </div>
+                    <button className="btn btn-outline-light btn-block" type="submit">Create Account</button>
+                  </form>
+
+                  <button className="btn btn-outline-light btn-block" onClick={this.props.toggleButton} >Click here to sign in</button>
+                  {this.state.redirect ? <Redirect to= '/Home' /> : null}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

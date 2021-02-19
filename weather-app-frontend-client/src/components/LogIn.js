@@ -46,20 +46,30 @@ class LogIn extends Component {
   render(){
     return (
       <div>
-        <h3>Sign In</h3>
-        <form onSubmit ={(e) => this.handleSubmit(e)}>
-          <label>
-            <input onChange={(e) => this.handleLogin(e)}type="text" placeholder="username" id="username" name="username"/> <br/>
-          </label>
+        <div className="col-lg-4">
+          <div className="card bg-dark card-form">
+            <div className="card-body">
+              <h3>Sign In</h3>
+                <form onSubmit ={(e) => this.handleSubmit(e)}>
+                  <div className="form-group">
+                    <label>
+                      <input className="form-control form-control-lg" onChange={(e) => this.handleLogin(e)}type="text" placeholder="username" id="username" name="username"/> <br/>
+                    </label>
+                  </div>
 
-          <label>
-            <input onChange={(e) => this.handleLogin(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
-          </label>
+                  <div className="form-group">
+                    <label>
+                      <input className="form-control form-control-lg" onChange={(e) => this.handleLogin(e)} type="password" placeholder="password"id="password" name="password"/> <br/>
+                    </label>
+                  </div>
+                    <button className="btn btn-outline-light btn-block" type="submit">Login</button>
+                  </form>
+                  <button className="btn btn-outline-light btn-block" onClick={this.props.toggleButton} >Sign Up</button>
+                  {this.state.logged? <Redirect to='/Home'/> : null}
 
-          <button type="submit">Login</button>
-        </form>
-          <button onClick={this.props.toggleButton} >Sign Up</button>
-          {this.state.logged? <Redirect to='/Home'/> : null}
+          </div>
+          </div>
+          </div>
 
 
       </div>

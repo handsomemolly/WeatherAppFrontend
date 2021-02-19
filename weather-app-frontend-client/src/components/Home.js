@@ -7,6 +7,7 @@ import EditAccount from "./EditAccount";
 import userEvent from "@testing-library/user-event";
 import Nav from "../Nav";
 import UserContainer from './UserContainer'
+import "../App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Home extends Component {
@@ -108,8 +109,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav/>
-        <h3> Home </h3>
+        <Nav/> <br/>
+        <h3 className="text-white"> Weather </h3>
 
         <div>
           {" "}

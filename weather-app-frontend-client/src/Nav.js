@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 class Nav extends Component {
   render() {
     return(
-      <nav>
-        <h3> Hello </h3>
+      <nav className="navbar">
+        <h1 className="text-white"> Weather App Name </h1>
         <ul className ="NavStuff">
           <Link to="/Home">
-            <li> Home </li>
+            <li className="text-white nav-text"> Home </li>
           </Link>
           <Link to="/Edit">
-            <li> Edit Account </li>
+            <li className = "text-white nav-text"> Edit Account </li>
           </Link>
         </ul>
       </nav>
