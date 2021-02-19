@@ -164,3 +164,7 @@ html {
 .weeklydiv {
   width: 85%;
 }
+
+.signupdiv {
+  display: center;
+}

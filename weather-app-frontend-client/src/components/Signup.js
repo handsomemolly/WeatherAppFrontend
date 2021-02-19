@@ -42,7 +42,7 @@ class Signup extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="signupdiv">
         <div className="col-lg-4">
           <div className="card bg-dark card-form">
             <div className="card-body">
